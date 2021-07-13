@@ -1,0 +1,72 @@
+
+version: 2
+
+sources:
+    - name: spotify_project
+      description: "Model from raw data sources in postgresql to staging data source in postgresql"
+      database: spotify600k
+      schema: spotify
+      tables:
+        - name: tracks
+          description: spotify tracks data in US market from 1922~2021. Decription of columns refer to https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/
+          columns:
+            - name: id
+              description: id of the tracks. Unique key of the table
+            - name: name
+              description: name of the tracks
+            - name: popularity
+              description: The popularity of the tracks. Calculated by algorithm and is based on the total number of plays the track has had and how recent those plays are
+            - name: duration_ms
+              description: The length of the tracks
+            - name: explicit
+              description: check the link under the table description
+            - name: artists
+              description: check the link under the table description
+            - name: id_artists
+              description: id of the artists. The foreign key to the artists table
+            - name: release_date
+              description: check the link under the table description
+            - name: danceability
+              description: check the link under the table description
+            - name: energy
+              description: check the link under the table description
+            - name: key
+              description: check the link under the table description
+            - name: loudness
+              description: check the link under the table description
+            - name: mode
+              description: check the link under the table description
+            - name: speechiness
+              description: check the link under the table description
+            - name: acousticness
+              description: check the link under the table description
+            - name: instrumentalness
+              description: check the link under the table description
+            - name: liveness
+              description: check the link under the table description
+            - name: valence
+              description: check the link under the table description
+            - name: tempo
+              description: check the link under the table description
+            - name: time_signature
+              description: check the link under the table description
+        - name: artists
+          description: spotify artists data related to tracks data
+          columns:
+            - name: id
+              description: id of the artitsts. The primary key of the table
+            - name: followers
+              description: number of followers on spotify
+            - name: genres
+              description: genres related to the artists
+            - name: name
+              description: name of the artists
+            - name: popularity
+              description: none
+          
+models:
+    - name: stg_tracks
+      description: spotify tracks data after the initial data manipulation
+    - name: stg_artists
+      description: spotify tracks data after the initial data manipulation
+
