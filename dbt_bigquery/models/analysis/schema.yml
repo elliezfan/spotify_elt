@@ -1,0 +1,10 @@
+
+version: 2
+
+          
+models:
+    - name: top20_artist_tracks
+      description: top 20 artists (by number of followers) with their tracks details
+    - name: top20_artist_genres
+      description: top 20 artists (by number of followers) with genre details related to them
+
